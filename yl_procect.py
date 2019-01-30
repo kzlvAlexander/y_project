@@ -38,6 +38,7 @@ class Window(QMainWindow):
         clearAction = QAction("Clear", self)
         clearAction.setShortcut("Ctrl+C")
         fileMenu.addAction(clearAction)
+        clearAction.triggered.connect(self.clear)
 
         treepxAction = QAction("3px", self)
         treepxAction.setShortcut("Ctrl+T")
@@ -97,6 +98,9 @@ class Window(QMainWindow):
             return
         self.image.save(filePath)
 
+    def clear(self):
+        self.image.fill(Qt.white)
+        self.update()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
