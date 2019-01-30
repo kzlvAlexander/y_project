@@ -43,18 +43,22 @@ class Window(QMainWindow):
         treepxAction = QAction("3px", self)
         treepxAction.setShortcut("Ctrl+T")
         brushMenu.addAction(treepxAction)
+        treepxAction.triggered.connect(self.treePx)
 
         fivepxAction = QAction("5px", self)
         fivepxAction.setShortcut("Ctrl+F")
         brushMenu.addAction(fivepxAction)
+        fivepxAction.triggered.connect(self.fivePx)
 
         sevenpxAction = QAction("7px", self)
         sevenpxAction.setShortcut("Ctrl+V")
         brushMenu.addAction(sevenpxAction)
+        sevenpxAction.triggered.connect(self.sevenPx)
 
         ninepxAction = QAction("9px", self)
         ninepxAction.setShortcut("Ctrl+N")
         brushMenu.addAction(ninepxAction)
+        ninepxAction.triggered.connect(self.ninePx)
 
         blackAction = QAction("Black", self)
         brushColor.addAction(blackAction)
@@ -101,6 +105,19 @@ class Window(QMainWindow):
     def clear(self):
         self.image.fill(Qt.white)
         self.update()
+
+    def treePx(self):
+        self.brushSize = 3
+
+    def fivePx(self):
+        self.brushSize = 5
+
+    def sevenPx(self):
+        self.brushSize = 7
+
+    def ninePx(self):
+        self.brushSize = 9
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
