@@ -102,7 +102,8 @@ class Window(QMainWindow):
         canvasPainter.drawImage(self.rect(), self.image, self.image.rect())
 
     def save(self):
-        filePath, _= QFileDialog.getSaveFileName(self, "Save Image", "", "PNG(*.png);;JPEG(*.jpg *.jpeg);; ALL Files('.')")
+        filePath, _ = QFileDialog.getSaveFileName(self, "Save Image", "",
+                                                  "PNG(*.png);;JPEG(*.jpg *.jpeg);; ALL Files('.')")
         if filePath == "":
             return
         self.image.save(filePath)
@@ -137,7 +138,6 @@ class Window(QMainWindow):
 
     def yellowColor(self):
         self.brushColor = Qt.yellow
-
 
 
 if __name__ == "__main__":
