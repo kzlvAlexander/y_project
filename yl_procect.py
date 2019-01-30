@@ -62,18 +62,23 @@ class Window(QMainWindow):
 
         blackAction = QAction("Black", self)
         brushColor.addAction(blackAction)
+        blackAction.triggered.connect(self.blackColor)
 
         whiteAction = QAction("White", self)
         brushColor.addAction(whiteAction)
+        whiteAction.triggered.connect(self.whiteColor)
 
         redAction = QAction("Red", self)
         brushColor.addAction(redAction)
+        redAction.triggered.connect(self.redColor)
 
         greenAction = QAction("Green", self)
         brushColor.addAction(greenAction)
+        greenAction.triggered.connect(self.greenColor)
 
         yellowAction = QAction("Yellow", self)
         brushColor.addAction(yellowAction)
+        yellowAction.triggered.connect(self.yellowColor)
 
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
@@ -117,6 +122,22 @@ class Window(QMainWindow):
 
     def ninePx(self):
         self.brushSize = 9
+
+    def blackColor(self):
+        self.brushColor = Qt.black
+
+    def whiteColor(self):
+        self.brushColor = Qt.white
+
+    def redColor(self):
+        self.brushColor = Qt.red
+
+    def greenColor(self):
+        self.brushColor = Qt.green
+
+    def yellowColor(self):
+        self.brushColor = Qt.yellow
+
 
 
 if __name__ == "__main__":
